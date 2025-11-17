@@ -19,6 +19,24 @@ This is a **monorepo** containing multiple independent but related projects. All
 
 ---
 
+## ⚙️ Setup Required at Session Start
+
+### GitHub App Installation
+**Action Required:** Install Claude Code GitHub App manually at the start of each new session.
+
+**Why:** Automated install fails - requires manual setup.
+
+**Steps:**
+1. Visit: https://github.com/anthropics/claude-code-action/blob/main/docs/setup.md
+2. Follow manual installation instructions
+3. Grant access to repository: `adambalm/sca-projects`
+
+**Repository:** https://github.com/adambalm/sca-projects
+
+**Note:** This is a known issue - the `/install-github-app` command fails with "Failed to access repository".
+
+---
+
 ## 📁 Current Projects
 
 ### TennisFlyer/
