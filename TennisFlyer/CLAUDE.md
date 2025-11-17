@@ -1,5 +1,18 @@
 # CLAUDE.md
 
+---
+🚨 **CONTEXT: TennisFlyer Project**
+
+This is the **TennisFlyer** promotional flyer project (SHIPPED - November 2025).
+
+**DO NOT confuse with:**
+- ResumeFactory (job application materials)
+- SCAWebsite (future: main institutional website)
+- EnrollmentAutomations (future: workflow automation)
+
+This project is **completed and archived**. Use as reference for patterns and workflows.
+---
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
