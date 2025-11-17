@@ -19,21 +19,33 @@ This is a **monorepo** containing multiple independent but related projects. All
 
 ---
 
-## ⚙️ Setup Required at Session Start
+## ⚙️ Session Startup Checklist
 
-### GitHub App Installation
-**Action Required:** Install Claude Code GitHub App manually at the start of each new session.
+### GitHub App Installation (INCOMPLETE)
+**🚨 CRITICAL: Ask user at the start of EVERY new session until completed.**
 
-**Why:** Automated install fails - requires manual setup.
+**Status:** NOT INSTALLED - Automated install fails
 
-**Steps:**
-1. Visit: https://github.com/anthropics/claude-code-action/blob/main/docs/setup.md
-2. Follow manual installation instructions
-3. Grant access to repository: `adambalm/sca-projects`
+**Claude's Action:** At session start, ask user:
+```
+"The GitHub App for this repository is not installed. Would you like to complete the manual installation now?
 
-**Repository:** https://github.com/adambalm/sca-projects
+Repository: https://github.com/adambalm/sca-projects
+Setup guide: https://github.com/anthropics/claude-code-action/blob/main/docs/setup.md"
+```
 
-**Note:** This is a known issue - the `/install-github-app` command fails with "Failed to access repository".
+**If user says YES:**
+1. Guide them through manual installation steps
+2. Once confirmed installed, update this section to mark as COMPLETE
+3. Remove this reminder from future sessions
+
+**If user says NO or LATER:**
+- Continue with session
+- Ask again next session (do not skip this check)
+
+**Why this matters:** Required for CI/CD integration and automated workflows
+
+**Note:** The `/install-github-app` command fails with "Failed to access repository" - manual setup is required.
 
 ---
 
