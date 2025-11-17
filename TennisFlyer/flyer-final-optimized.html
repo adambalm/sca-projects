@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Springfield Commonwealth Academy - Tennis Excellence Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: letter portrait;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            color: #0a0e27;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            width: 720px;
+            max-width: 720px;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header - Ultra Clean */
+        .header {
+            background: #ffffff;
+            padding: 20px 48px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 48px;
+            right: 48px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .header-text {
+            text-align: right;
+        }
+
+        .header-text h1 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #001f5c;
+            letter-spacing: -0.3px;
+            margin-bottom: 2px;
+        }
+
+        .header-text h2 {
+            font-size: 10px;
+            color: #94a3b8;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section - Compressed */
+        .hero {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+            background: #001942;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; object-position: center;
+            opacity: 0.85;
+            filter: contrast(1.1) saturate(0.9);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg,
+                rgba(0, 25, 66, 0.9) 0%,
+                rgba(0, 25, 66, 0.4) 50%,
+                rgba(0, 25, 66, 0.1) 100%);
+        }
+
+        .hero-inner {
+            padding: 0 48px;
+            max-width: 650px;
+        }
+
+        .hero-title {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #001942;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-pill::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: #fdb913;
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 0 3px rgba(253, 185, 19, 0.2);
+        }
+
+        /* Stats Section - Refined */
+        .stats {
+            background: linear-gradient(180deg, #001942 0%, #001f5c 100%);
+            padding: 24px 48px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+
+        .stats::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(253, 185, 19, 0.3);
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-value {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 2px;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .stat-plus {
+            font-size: 18px;
+            font-weight: 600;
+            color: #fdb913;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        /* Main Content - Premium Cards */
+        .content {
+            padding: 28px 48px 24px;
+            background: #fafbfc;
+            position: relative;
+        }
+
+        .content-wrapper {
+            max-width: 100%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 16px;
+            align-items: stretch;
+            padding: 0 48px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card-accent {
+            height: 4px;
+            background: linear-gradient(90deg, #fdb913 0%, #ffcb3d 100%);
+        }
+
+        .feature-card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card h4 {
+            font-size: 16px;
+            color: #001942;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #64748b;
+            margin-bottom: 12px;
+            flex: 1;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            background: #f1f5f9;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #475569;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            align-self: flex-start;
+        }
+
+        .partnership-card {
+            background: linear-gradient(135deg, #001942 0%, #001f5c 100%);
+            border-radius: 8px;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 4px 24px rgba(0, 25, 66, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partnership-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(253, 185, 19, 0.08) 0%, transparent 60%);
+        }
+
+        .partnership-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .partnership-card h4 {
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #fdb913;
+            letter-spacing: 0.3px;
+        }
+
+        .partnership-card p {
+            font-size: 12px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 6px;
+        }
+
+        .time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(253, 185, 19, 0.15);
+            padding: 5px 10px;
+            border-radius: 50px;
+            margin-top: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #fdb913;
+            letter-spacing: 0.5px;
+        }
+
+        /* Location Section - Compressed */
+        .location {
+            background: #ffffff;
+            padding: 0px 48px 16px;
+        }
+
+        .location-content {
+            width: 100%;
+            margin: 0;
+        }
+
+        .location-header {
+            display: none;
+        }
+
+        .location-label {
+            display: none;
+        }
+
+        .location-title {
+            display: none;
+        }
+
+        .map-frame {
+            position: relative;
+            border-radius: 0px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 25, 66, 0.08);
+            background: #f8fafc;
+        }
+
+        .map-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .facility-caption {
+            background: #ffffff;
+            padding: 16px 20px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #64748b;
+        }
+
+        .facility-caption strong {
+            display: block;
+            color: #001942;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        /* CTA Section - Compact */
+        .cta {
+            background: #001942;
+            padding: 28px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(253, 185, 19, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(253, 185, 19, 0.12) 0%, transparent 50%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 28px;
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.8px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #fdb913;
+            color: #001942;
+            padding: 12px 28px;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(253, 185, 19, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(253, 185, 19, 0.4);
+            background: #ffcb3d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="https://raw.githubusercontent.com/adambalm/sfca/master/Adobe%20Express%20-%20file.png" alt="Springfield Commonwealth Academy" class="logo">
+            <div class="header-text">
+                <h1>Springfield Commonwealth Academy</h1>
+                <h2>Tennis Excellence Program</h2>
+            </div>
+        </div>
+
+        <!-- Hero -->
+        <div class="hero">
+            <img src="https://raw.githubusercontent.com/adambalm/sfca/master/Screenshot%202025-10-25%20005047.png" alt="Tennis Courts" class="hero-image">
+            <div class="hero-content">
+                <div class="hero-inner">
+                    <h3 class="hero-title">Professional Tennis Training</h3>
+                    <div class="hero-features">
+                        <span class="hero-pill">5 Indoor Courts</span>
+                        <span class="hero-pill">Year-round facilities</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value">
+                    <span class="stat-number">5</span>
+                </div>
+                <div class="stat-label">Indoor Courts</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">
+                    <span class="stat-number">30</span>
+                    <span class="stat-plus">+</span>
+                </div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">
+                    <span class="stat-number">18</span>
+                </div>
+                <div class="stat-label">Minutes Away</div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="content-wrapper">
+                <div class="feature-card">
+                    <div class="feature-card-accent"></div>
+                    <div class="feature-card-content">
+                        <h4>Expert Instruction</h4>
+                        <p>USPTA-certified professionals with 30+ years of experience</p>
+                        <span class="badge">USPTA Certified</span>
+                    </div>
+                </div>
+
+                <div class="partnership-card">
+                    <div class="partnership-content">
+                        <h4>Enfield Tennis Club</h4>
+                        <p>Partnership facility</p>
+                        <p>Quick 18-minute drive</p>
+                        <span class="time-badge">⏱ 18 MIN</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location -->
+        <div class="location">
+            <div class="location-content">
+                <div class="location-header">
+                    <div class="location-title">Enfield Tennis Club - 18 Minutes from Campus</div>
+                </div>
+                <div class="map-frame">
+                    <img src="img/court.png" alt="Enfield Tennis Club Indoor Courts" class="map-image">
+                    <div class="facility-caption">
+                        <strong>Enfield Tennis Club - Partnership Facility</strong>
+                        5 indoor tennis courts located just 18 minutes from Springfield Commonwealth Academy campus
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta">
+            <div class="cta-content">
+                <h3 class="cta-title">Reserve Your Spot</h3>
+                <a href="mailto:info@springfieldca.org" class="cta-button">info@springfieldca.org</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

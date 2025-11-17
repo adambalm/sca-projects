@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "playwright": "1.56.1"
+  },
+  "scripts": {
+    "test": "playwright test --reporter=list",
+    "test:chromium": "playwright test --project=chromium --reporter=list"
+  }
+}

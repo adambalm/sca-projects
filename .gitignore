@@ -1,0 +1,27 @@
+# MCP configuration (contains API keys)
+/.mcp.json
+
+# Dependencies
+/node_modules/
+
+# Test outputs
+/test-results/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.log
+
+# Browser binaries and cache
+UsersGuest1AppDataLocalms-playwright/
+/.playwright/
+
+# Local settings
+.claude/settings.local.json
