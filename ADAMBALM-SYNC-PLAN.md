@@ -32,7 +32,7 @@
 | **adambalm** | `/home/ed/sca-projects/` | Follows home directory pattern |
 
 **Why different:**
-- adambalm has 20+ projects directly in ~/ (existing pattern)
+- adambalm has 22+ projects directly in ~/ (existing pattern)
 - suphouse uses ~/ClaudeProjects/ workspace
 - Both are valid, just need to document mapping
 
@@ -368,7 +368,7 @@ These must be created per-machine with machine-specific paths:
       "command": "cmd",
       "args": ["/c", "npx", "@playwright/mcp"],
       "env": {
-        "PLAYWRIGHT_BROWSERS_PATH": "C:UsersGuest1AppDataLocalms-playwright"
+        "PLAYWRIGHT_BROWSERS_PATH": "C:/Users/Guest1/AppData/Local/ms-playwright"
       }
     }
   }
@@ -561,35 +561,50 @@ If future projects need different Node.js versions:
 
 ## Appendix: Diagnostic Commands Run
 
-To verify current state, these commands were executed:
+Commands executed to verify current state:
 
 ```bash
-# Check Node.js and npm (via nvm)
+# Node.js and npm (via nvm)
 ssh ed@100.111.114.84 'source ~/.nvm/nvm.sh && nvm --version && nvm list && node --version && npm --version'
 
-# Check Claude Code
+# Claude Code
 ssh ed@100.111.114.84 'source ~/.nvm/nvm.sh && which claude && claude --version'
 
-# Check npm global packages
+# npm global packages
 ssh ed@100.111.114.84 'source ~/.nvm/nvm.sh && npm list -g --depth=0'
 
-# Check Docker containers
-ssh ed@100.111.114.84 'docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"'
+# Playwright
+ssh ed@100.111.114.84 'source ~/.nvm/nvm.sh && npx playwright --version && ls ~/.cache/ms-playwright'
 
-# Check project directories
-ssh ed@100.111.114.84 'ls -la ~/ | grep -E "^d"'
+# GPU detection
+ssh ed@100.111.114.84 'lspci | grep -i nvidia && nvidia-smi'
 
-# Check git repositories
-ssh ed@100.111.114.84 'find ~/ -maxdepth 2 -name ".git" -type d'
+# Ollama
+ssh ed@100.111.114.84 'ps aux | grep ollama | grep -v grep && systemctl status ollama && ollama list'
 
-# Check SCA Django container
+# ML infrastructure
+ssh ed@100.111.114.84 'source ~/ml-roadmap/.venv/bin/activate && pip list | grep -E "torch|transformers"'
+
+# Docker containers
+ssh ed@100.111.114.84 'docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}"'
+
+# Project directories and git repos
+ssh ed@100.111.114.84 'ls -la ~/ && find ~/ -maxdepth 2 -name ".git" -type d'
+
+# Django container inspection
 ssh ed@100.111.114.84 'docker inspect springfield_academy_django --format "{{json .Mounts}}"'
 
-# Check system resources
+# Basic Memory
+ssh ed@100.111.114.84 'ls -la ~/.basic-memory/ && cat ~/.basic-memory/config.json && ls -la ~/basic-memory/.git'
+
+# Git configuration
+ssh ed@100.111.114.84 'which uvx && git config user.name && git config user.email'
+
+# System resources
 ssh ed@100.111.114.84 'free -h && df -h /'
 ```
 
-Results documented in "Current State Analysis" section above.
+Results documented in "Current State Analysis" section.
 
 ---
 
@@ -607,7 +622,7 @@ Results documented in "Current State Analysis" section above.
 **Next Steps:**
 1. Engineer review of this plan
 2. Address any concerns or questions
-3. Execute Phases 1-3 (~10 minutes)
+3. Execute Phases 1-3 (5-8 minutes)
 4. Verify cross-machine sync
 5. Document in Basic Memory
 
