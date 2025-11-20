@@ -18,9 +18,9 @@
 - ✅ **Claude Code already present** - v2.0.24 globally via npm
 - ✅ **Keep "main" Basic Memory project** - Folder-based organization
 
-**Estimated Time:** 10 minutes
-**Disk Impact:** ~410 MB (npm packages + Chromium browser)
-**System Impact:** Minimal (64 GB RAM, 1.6 TB free on adambalm)
+**Estimated Time:** 5-8 minutes
+**Disk Impact:** ~15 MB (Playwright already installed)
+**System Impact:** None (all tools already present)
 
 ---
 
@@ -224,33 +224,27 @@ git status  # Should be clean
 
 ---
 
-### Phase 2: Set Up adambalm (5 minutes)
+### Phase 2: Set Up adambalm (3 minutes)
 
 **Objective:** Clone repo, install dependencies
 
+**Already present (verified):**
+- Node.js v22.18.0, npm 10.9.3, Claude Code v2.0.24
+- Playwright 1.56.1, @playwright/mcp@0.0.39
+- Browser binaries in ~/.cache/ms-playwright
+- uvx, Basic Memory (configured, repo cloned)
+- Git configured (Ed O'Connell, SSH to GitHub working)
+
 ```bash
-# 1. Clone repository (following adambalm pattern: projects in ~/)
+# 1. Clone repository
 cd ~
 git clone git@github.com:adambalm/sca-projects.git sca-projects
 cd sca-projects
 
-# 2. Verify clone
-git remote -v  # github.com/adambalm/sca-projects
-git log --oneline -5
-ls -la  # TennisFlyer/, ResumeFactory/, c2s_fire_drill/, etc.
-
-# 3. Install npm dependencies (exact versions via package-lock.json)
+# 2. Install dependencies (uses cached Playwright)
 npm ci
 
-# 4. Install Playwright browser binaries
-npx playwright install chromium
-
-# 5. Verify installations
-node --version      # v22.18.0 (already present)
-npm --version       # 10.9.3 (already present)
-npx playwright --version  # 1.56.1 (newly installed)
-
-# 6. Create Linux-compatible MCP config for TennisFlyer
+# 3. Create TennisFlyer/.mcp.json
 cd TennisFlyer
 cat > .mcp.json << 'EOF'
 {
@@ -266,20 +260,17 @@ cat > .mcp.json << 'EOF'
   }
 }
 EOF
-
 cd ..
+
+# 4. Verify
+git remote -v
+npx playwright --version  # 1.56.1
 ```
 
-**What gets installed:**
-- sca-projects repository: ~10 MB
-- npm packages (Playwright, etc.): ~100 MB
-- Chromium browser binary: ~300 MB (cached at ~/.cache/ms-playwright)
-- **Total:** ~410 MB
-
-**System impact:**
-- Disk: 410 MB of 1.6 TB (0.025%)
-- RAM: 0 MB at rest, ~200 MB during execution (64 GB total)
-- **Impact:** Negligible ✅
+**Disk impact:**
+- Repository: ~10 MB
+- npm dependencies: Minimal (Playwright already cached)
+- Total new: ~15 MB
 
 ---
 
@@ -461,8 +452,9 @@ These must be created per-machine with machine-specific paths:
 ### Context for Discussion
 
 - Directory placement: ~/sca-projects (follows existing pattern of 22+ projects in ~/)
-- Resource impact: 410 MB disk, ~200 MB RAM during execution
-- Backup strategy: Git + GitHub (no additional backup configured)
+- Resource impact: 15 MB disk, ~200 MB RAM during execution
+- All dependencies already installed (Node.js, Playwright, Claude Code, etc.)
+- Backup strategy: Git + GitHub
 - Potential rearchitecture: May affect directory structure later
 
 ---
